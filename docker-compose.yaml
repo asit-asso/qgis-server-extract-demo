@@ -1,0 +1,30 @@
+version: '3.7'
+
+networks:
+    default:
+
+services:
+    nginx:
+        image: nginx:1.25.3
+        ports:
+            - '8888:80'
+        volumes:
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        networks:
+            - default
+
+    qgis-server:
+        build:
+            context: .
+            dockerfile: ./docker/qgis-server/Dockerfile
+        tty: true
+        volumes:
+            - ./qgis-data:/data:ro
+        environment:
+            - LANG=en_EN.UTF-8
+            - QGIS_PROJECT_FILE=/data/sample-atlas.qgz
+            - QGIS_SERVER_LOG_LEVEL=0  # INFO (log all requests)
+            - DEBUG=1                  # display env before spawning QGIS Server
+        networks:
+            - default
+
