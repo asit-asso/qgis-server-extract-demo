@@ -7,7 +7,7 @@ Démonter/tester l'interopérabilité entre QGIS Server et Extract pour l'impres
 ## Contenu
 - Dockerfile QGIS Server
 - Config NGINX
-- Projet QGIS de démo avec un layer de donnée et un layer de coverage pour l'Atlas (découpage)
+- Projet QGIS de démo avec un layer de données et un layer de coverage pour l'Atlas (découpage / atlasCoverageLayer)
 
 ## Utilisation
 
@@ -59,7 +59,7 @@ On peut lister les features de la couche de coverage qui intersectent une zone :
 ```
 
 On peut extraire les IDs des features (xpath ci dessous): :
-`/wfs:FeatureCollection/gml:featureMember/qgs:MY_COVERAGE_LAYER/@gml:id`
+`/wfs:FeatureCollection/gml:featureMember/qgs:MY_COVERAGE_LAYER/@gml:id` (structure : `<featureType>.<id>`)
 
 Avec les IDs retournés, on peut lancer un print :
 `http://127.0.0.1:8888/qgis-server?SERVICE=WMS&REQUEST=GetPrint&CRS=EPSG:2056&TEMPLATE=mybeautifullayout&FORMAT=pdf&ATLAS_PK=119`
