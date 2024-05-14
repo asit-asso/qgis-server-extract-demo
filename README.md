@@ -2,7 +2,7 @@
 
 ## Objectif
 
-Démonter/tester l'interopérabilité entre QGIS Server et Extract pour l'impression d'un Atlas, basé sur une emprise géographique pour filtrer les pages de l'Atlas.
+Démontrer/tester l'interopérabilité entre QGIS Server et Extract pour l'impression d'un Atlas, basé sur une emprise géographique pour filtrer les pages de l'Atlas.
 
 ## Contenu
 - Dockerfile QGIS Server
